@@ -1,0 +1,6 @@
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.exe
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.pdb
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/bin/Debug/LitJson.dll
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/bin/Debug/Test.pdb
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/bin/Debug/Test.exe

@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using LitJson;
 
-namespace CsharpTest.src
+namespace Easy.CsharpTest
 {
     public class SocketClientTest
     {
+
         private static Socket _socket; 
 
         public static void Run()
@@ -18,7 +19,17 @@ namespace CsharpTest.src
             var data = new RegisterData();
             data.Username = "easy";
             data.Password = "123456";
-            Send(Pack(data));
+
+			PackageHead head = new PackageHead();
+			head.ActionId = 101;
+			head.MsgId = 2;
+
+			RegisterData data2 = new RegisterData();
+			data2.Username = "easy";
+			data2.Password = "343434";
+			var sendBytes = PackageFactory.Create(head, data2);
+
+            Send(sendBytes);
             Reieve();
         }
 
@@ -101,7 +112,7 @@ namespace CsharpTest.src
 
     }
 
-    public class PackegHead
+    public class PackageHead
     {
         public int MsgId = 0;
         public int ActionId = 0;
@@ -118,14 +129,13 @@ namespace CsharpTest.src
         public string Password;
     }
 
-
     public class PackageFactory
     {
-        private PackegHead _head;
+        private PackageHead _head;
         private BaseReqData _data;
         private static string _sendStr;
 
-        public static byte[] Create(PackegHead head, BaseReqData data)
+        public static byte[] Create(PackageHead head, BaseReqData data)
         {
             WriteHead(head);
             WriteData(data);
@@ -133,7 +143,7 @@ namespace CsharpTest.src
             return WriteBytesLength();
         }
 
-        private static void WriteHead(PackegHead head)
+        private static void WriteHead(PackageHead head)
         {
             _sendStr += string.Format("MsgId={0}&ActionId={1}", head.MsgId, head.ActionId);
         }
@@ -149,7 +159,7 @@ namespace CsharpTest.src
             byte[] len = BitConverter.GetBytes(tempBytes.Length);
             byte[] resultBytes = new byte[tempBytes.Length + len.Length];
             Buffer.BlockCopy(len, 0, resultBytes, 0, len.Length);
-            Buffer.BlockCopy(tempBytes, 0, resultBytes, len.Length, resultBytes.Length);
+            Buffer.BlockCopy(tempBytes, 0, resultBytes, len.Length, tempBytes.Length);
             return resultBytes;
         }
     }

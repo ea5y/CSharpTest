@@ -1,0 +1,7 @@
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/bin/Debug/Test.exe
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/bin/Debug/Test.pdb
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/bin/Debug/LitJson.dll
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.csprojResolveAssemblyReference.cache
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.csproj.CoreCompileInputs.cache
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.exe
+/home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.pdb

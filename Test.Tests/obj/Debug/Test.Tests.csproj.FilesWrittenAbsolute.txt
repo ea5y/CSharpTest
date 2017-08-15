@@ -1,0 +1,10 @@
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/Test.Tests.pdb
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/Test.Tests.dll
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/obj/Debug/Test.Tests.dll
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/obj/Debug/Test.Tests.pdb
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/nunit.framework.dll
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/Should.dll
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/Test.exe
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/Test.pdb
+/home/easy/workspace/Projects/csharp/CSharpTest/Test.Tests/bin/Debug/LitJson.dll
