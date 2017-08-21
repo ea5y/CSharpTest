@@ -21,7 +21,7 @@ namespace Easy.CsharpTest
             data.Password = "123456";
 
 			PackageHead head = new PackageHead();
-			head.ActionId = 1001;
+			head.ActionId = 1010;
 			head.MsgId = 2;
 
 			RegisterData data2 = new RegisterData();
@@ -48,16 +48,19 @@ namespace Easy.CsharpTest
             {
                 _socket.Connect("127.0.0.1", 9001);
             }
-            catch
+            catch(SocketException se)
             {
                 _socket = null;
+                var msg = string.Format("Error: {0}", se.Message);
+                Console.WriteLine(msg);
             }
         }
 
         //3.Close connection
         private static void CloseConnection()
         {
-
+            _socket.Close();
+            _socket = null;
         }
         
         //4.Start heartbeat
@@ -70,6 +73,11 @@ namespace Easy.CsharpTest
         private static void Send(byte[] data)
         {
             Console.WriteLine("===>Send");
+            if(_socket == null)
+            {
+                Console.WriteLine("Error: socket is null!");
+                return;
+            }
             _socket.Send(data);
         }
 
@@ -112,12 +120,21 @@ namespace Easy.CsharpTest
     public class PackageFactory
     {
         private static string _sendStr;
+        private static int MsgCounter = 0;
 
         public static byte[] Create(PackageHead head, BaseReqData data)
         {
             WriteHead(head);
             WriteData(data);
 
+            return WriteBytesLength();
+        }
+
+        public static byte[] Create(int actionId, BaseReqData data)
+        {
+            var head = new PackageHead() { ActionId = actionId, MsgId = ++MsgCounter };
+            WriteHead(head);
+            WriteData(data);
             return WriteBytesLength();
         }
 
