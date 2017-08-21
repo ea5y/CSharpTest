@@ -5,3 +5,11 @@
 /home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.csproj.CoreCompileInputs.cache
 /home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.exe
 /home/easy/workspace/Projects/csharp/CSharpTest/Test/obj/Debug/Test.pdb
+E:\project\CSharpTest\Test\obj\Debug\Test.exe
+E:\project\CSharpTest\Test\obj\Debug\Test.pdb
+E:\project\CSharpTest\Test\bin\Debug\Test.exe
+E:\project\CSharpTest\Test\bin\Debug\Test.pdb
+E:\project\CSharpTest\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+E:\project\CSharpTest\Test\bin\Debug\Google.Protobuf.dll
+E:\project\CSharpTest\Test\bin\Debug\Google.Protobuf.xml
+E:\project\CSharpTest\Test\bin\Debug\protobuf-net.dll

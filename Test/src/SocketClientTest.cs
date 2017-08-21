@@ -21,7 +21,7 @@ namespace Easy.CsharpTest
             data.Password = "123456";
 
 			PackageHead head = new PackageHead();
-			head.ActionId = 101;
+			head.ActionId = 1001;
 			head.MsgId = 2;
 
 			RegisterData data2 = new RegisterData();
@@ -90,26 +90,6 @@ namespace Easy.CsharpTest
                 Console.WriteLine("Res: {0}", str);
             }
         }
-
-        private static byte[] Pack(object data)
-        {
-            //1.Create packeg head
-            //2.Create body data
-            //3.Combine head & body
-            //4.Get bytes data
-            //5.Add data length
-
-            string strData = "MsgId=2&ActionId=1009&data=" + JsonMapper.ToJson(data);
-            byte[] result = Encoding.ASCII.GetBytes(strData);
-
-            byte[] dataLength = BitConverter.GetBytes(result.Length);
-            byte[] sendBytes = new byte[result.Length + dataLength.Length];
-            Buffer.BlockCopy(dataLength, 0, sendBytes, 0, dataLength.Length);
-            Buffer.BlockCopy(result, 0, sendBytes, dataLength.Length, result.Length);
-
-            return sendBytes;
-        }
-
     }
 
     public class PackageHead
@@ -131,8 +111,6 @@ namespace Easy.CsharpTest
 
     public class PackageFactory
     {
-        private PackageHead _head;
-        private BaseReqData _data;
         private static string _sendStr;
 
         public static byte[] Create(PackageHead head, BaseReqData data)

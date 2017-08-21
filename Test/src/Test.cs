@@ -18,13 +18,16 @@ namespace Easy.CsharpTest
 		static void Main()
 		{
 			Console.WriteLine("Hello world");
-			//StringFormatTest.StringFormatTest.Run();
-			//Hash.HashTest.Run();
-			//TestSerializable();
-			//SerializableTest.Run();
-			//ThreadTest.Run();
-			//SortTest.Run();
-			SocketClientTest.Run();
+            //StringFormatTest.StringFormatTest.Run();
+            //Hash.HashTest.Run();
+            //TestSerializable();
+            //SerializableTest.Run();
+            //ThreadTest.Run();
+            //SortTest.Run();
+            //SocketClientTest.Run();
+            //AttritbuteTest.Run();
+            ProtocolBuffers.ProtocolBuffersTest.Run();
+            Console.ReadKey();
 		}
 
 		public static void TestSerializable()

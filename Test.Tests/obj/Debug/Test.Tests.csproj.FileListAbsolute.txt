@@ -1,0 +1,11 @@
+E:\project\CSharpTest\Test.Tests\obj\Debug\Test.Tests.dll
+E:\project\CSharpTest\Test.Tests\obj\Debug\Test.Tests.pdb
+E:\project\CSharpTest\Test.Tests\obj\Debug\Test.Tests.csprojResolveAssemblyReference.cache
+E:\project\CSharpTest\Test.Tests\bin\Debug\Test.Tests.dll
+E:\project\CSharpTest\Test.Tests\bin\Debug\Test.Tests.pdb
+E:\project\CSharpTest\Test.Tests\bin\Debug\nunit.framework.dll
+E:\project\CSharpTest\Test.Tests\bin\Debug\Should.dll
+E:\project\CSharpTest\Test.Tests\bin\Debug\Test.exe
+E:\project\CSharpTest\Test.Tests\bin\Debug\LitJson.dll
+E:\project\CSharpTest\Test.Tests\bin\Debug\Test.pdb
+E:\project\CSharpTest\Test.Tests\bin\Debug\nunit.framework.xml
