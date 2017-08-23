@@ -24,7 +24,8 @@ namespace Easy.CsharpTest
             //SerializableTest.Run();
             //ThreadTest.Run();
             //SortTest.Run();
-            SocketClientTest.Run();
+            //TT.SocketClientTest.Run();
+            SocketClient.Run();
             //AttritbuteTest.Run();
             //ProtocolBuffers.ProtocolBuffersTest.Run();
             Console.ReadKey();
