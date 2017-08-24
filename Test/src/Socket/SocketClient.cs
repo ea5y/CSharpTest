@@ -119,6 +119,8 @@ namespace Easy.CsharpTest
                 return;
             }
 
+            if (_socket == null)
+                return;
             Console.WriteLine("===>Send");
             _socket.Send(data);
         }
