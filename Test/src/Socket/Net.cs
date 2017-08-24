@@ -12,7 +12,7 @@ namespace Easy.CsharpTest
         public static void Login(Action<BaseResData> callback)
         {
             var data = new RegisterData() { Username = "easy", Password = "443322" };
-            var bytes = PackageFactory.Pack(1010, data, callback);
+            var bytes = PackageFactory.Pack(1002, data, callback);
             SocketClient.Send(bytes);
         }
     }

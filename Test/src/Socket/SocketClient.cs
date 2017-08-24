@@ -22,20 +22,19 @@ namespace Easy.CsharpTest
 
         public static void Run()
         {
+            /*
             for (int i = 0; i < 30; i++)
             {
                 Net.Login((res) =>
                 {
                     Console.WriteLine("Login callback!");
                 });
-                /*
-                RegisterData data2 = new RegisterData();
-                data2.Username = "easy";
-                data2.Password = "343434";
-                var sendBytes = PackageFactory.Pack(1010, data2);
-                Send(sendBytes);
-                */
             }
+            */
+                Net.Login((res) =>
+                {
+                    Console.WriteLine("Login callback!");
+                });
         }
 
         //1.Check  connection
@@ -138,17 +137,19 @@ namespace Easy.CsharpTest
                         byte[] data = new byte[dataLen];
                         NetRead(data, dataLen);
 
-                        PackageResHead head;
+                        PackageResHead headRes;
                         BaseResData res;
-                        if (PackageFactory.Unpack(data, out head, out res))
+                        if (PackageFactory.Unpack(data, out headRes, out res))
                         {
                             PackageReqHead headReq;
-                            if(SendDic.TryGetValue(head.MsgId, out headReq))
+                            if(SendDic.TryGetValue(headRes.MsgId, out headReq))
                             {
-                                //@TODO add deal error code
-                                headReq.callback(res);
-                                SendDic.Remove(head.MsgId);
-                                Console.WriteLine("SendDic count:{0}", SendDic.Count);
+                                if(!GetError(headRes.StatusCode))
+                                {
+                                    headReq.callback(res);
+                                    SendDic.Remove(headRes.MsgId);
+                                    Console.WriteLine("SendDic count:{0}", SendDic.Count);
+                                }
                             }
                         }
                     }
@@ -157,6 +158,18 @@ namespace Easy.CsharpTest
                         break;
                     }
                 }
+            }
+        }
+
+        private static bool GetError(int code)
+        {
+            if (code == 0)
+                return false;
+            else
+            {
+                var msg = string.Format("ReqStatus: {0}", ErrorCode.Dic[code]);
+                Console.WriteLine(msg);
+                return true;
             }
         }
         

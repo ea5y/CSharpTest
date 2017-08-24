@@ -149,6 +149,7 @@ namespace Easy.CsharpTest
                 bodyBytes = new byte[bodyLen];
                 Buffer.BlockCopy(data, pos, bodyBytes, 0, bodyLen);
                 string str = Encoding.UTF8.GetString(bodyBytes);
+                Console.WriteLine("Res: {0}", str);
                 //res = JsonMapper.ToObject<BaseResData>(str);
             }
             else
