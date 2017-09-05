@@ -26,11 +26,34 @@ namespace Easy.CsharpTest
             //SortTest.Run();
             //TT.SocketClientTest.Run();
             //SocketClient.Run();
+<<<<<<< HEAD
             var http = new HttpClient();
             http.Run();
+=======
+>>>>>>> 41b836b62cef5044ec187924f76495c83479ceb6
             //AttritbuteTest.Run();
             //ProtocolBuffers.ProtocolBuffersTest.Run();
+
+			Father father = new Child();
+			father.Run();
+
             Console.ReadKey();
+		}
+
+		public class Father
+		{
+			public virtual void Run()
+			{
+				Console.WriteLine("Hi I'm father");
+			}
+		}
+
+		public class Child : Father
+		{
+			public void Run()
+			{
+				Console.WriteLine("Hi I'm child");
+			}
 		}
 
 		public static void TestSerializable()
