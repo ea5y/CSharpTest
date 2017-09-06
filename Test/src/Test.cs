@@ -25,17 +25,15 @@ namespace Easy.CsharpTest
             //ThreadTest.Run();
             //SortTest.Run();
             //TT.SocketClientTest.Run();
-            //SocketClient.Run();
-<<<<<<< HEAD
-            var http = new HttpClient();
-            http.Run();
-=======
->>>>>>> 41b836b62cef5044ec187924f76495c83479ceb6
+            SocketClient.Run();
+            //
+            //var http = new HttpClient();
+            //http.Run();
+            //
             //AttritbuteTest.Run();
             //ProtocolBuffers.ProtocolBuffersTest.Run();
-
-			Father father = new Child();
-			father.Run();
+            //Father father = new Father();
+            //Child child = (Child)father;
 
             Console.ReadKey();
 		}

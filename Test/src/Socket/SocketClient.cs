@@ -18,7 +18,7 @@ namespace Easy.CsharpTest
         private static Timer _heartbeatTimer;
         private const int _heartbeatInterval = 10000;
 
-        public static Dictionary<int, PackageReqHead> SendDic = new Dictionary<int, PackageReqHead>();
+        public static Dictionary<int, PackageReqHead<BaseResData>> SendDic = new Dictionary<int, PackageReqHead<BaseResData>>();
 
         public static void Run()
         {
@@ -32,7 +32,10 @@ namespace Easy.CsharpTest
             }
             */
                 Net.Login((res) =>
-                {
+                { 
+                    var data = res as LoginDataRes;
+                    Console.WriteLine("SessionId:{0}", data.SessionId);
+                    PackageReqHead<LoginDataRes>.SessionId = data.SessionId;
                     Console.WriteLine("Login callback!");
                 });
         }
@@ -140,15 +143,24 @@ namespace Easy.CsharpTest
                         NetRead(data, dataLen);
 
                         PackageResHead headRes;
-                        BaseResData res;
-                        if (PackageFactory.Unpack(data, out headRes, out res))
+                        BaseResData res = null;
+                        string strDataRes;
+                        if (PackageFactory.Unpack(data, out headRes, out strDataRes))
                         {
-                            PackageReqHead headReq;
+                            OutputHeadRes(headRes);
+
+                            PackageReqHead<BaseResData> headReq;
                             if(SendDic.TryGetValue(headRes.MsgId, out headReq))
                             {
                                 if(!GetError(headRes.StatusCode))
                                 {
-                                    headReq.callback(res);
+                                    var obj = Activator.CreateInstance(headReq.Type);
+                                    var backData = obj as BaseResData;
+
+                                    LoginDataRes dd = new LoginDataRes();
+                                    var ss = dd.GetType();
+                                    
+                                    //headReq.callback();
                                     SendDic.Remove(headRes.MsgId);
                                     Console.WriteLine("SendDic count:{0}", SendDic.Count);
                                 }
@@ -161,6 +173,20 @@ namespace Easy.CsharpTest
                     }
                 }
             }
+        }
+
+        private static void OutputHeadRes(PackageResHead headRes)
+        {
+            var msg = string.Format(
+                    "HeadRes: \n ActionId:{0},Des:{1},MsgId:{2},SesId:{3},Code{4},St:{5},UserId:{6}",
+                    headRes.ActionId, 
+                    headRes.Description, 
+                    headRes.MsgId, 
+                    headRes.SessionId,
+                    headRes.StatusCode, 
+                    headRes.StrTime,
+                    headRes.UserId);
+            Console.WriteLine(msg);
         }
 
         private static bool GetError(int code)

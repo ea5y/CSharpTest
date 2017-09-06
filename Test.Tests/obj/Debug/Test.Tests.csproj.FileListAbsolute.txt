@@ -9,3 +9,6 @@ E:\project\CSharpTest\Test.Tests\bin\Debug\Test.exe
 E:\project\CSharpTest\Test.Tests\bin\Debug\LitJson.dll
 E:\project\CSharpTest\Test.Tests\bin\Debug\Test.pdb
 E:\project\CSharpTest\Test.Tests\bin\Debug\nunit.framework.xml
+E:\project\CSharpTest\Test.Tests\bin\Debug\Google.Protobuf.dll
+E:\project\CSharpTest\Test.Tests\bin\Debug\protobuf-net.dll
+E:\project\CSharpTest\Test.Tests\bin\Debug\Google.Protobuf.xml

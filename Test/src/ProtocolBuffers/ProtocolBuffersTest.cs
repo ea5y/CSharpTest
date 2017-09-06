@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Easy.CsharpTest.ProtocolBuffers.Person.Types;
+//using Easy.CsharpTest.ProtocolBuffers.Person;
 using Google.Protobuf;
 using System.IO;
 using LitJson;
@@ -28,8 +28,8 @@ namespace Easy.CsharpTest.ProtocolBuffers
                 Id = 1234,
                 Name = "John Doe",
                 Email = "jdoe@example.com",
-                //Phones = { new Person.Types.PhoneNumber { Number = "555-4321", Type = Person.Types.PhoneType.Home } }
-                Phones = { new PhoneNumber { Number = "555-4321", Type = PhoneType.Home} }
+                Phones = { new Person.Types.PhoneNumber { Number = "555-4321", Type = Person.Types.PhoneType.Home } }
+                //Phones = { new PhoneNumber { Number = "555-4321", Type = PhoneType.Home} }
             };         
             using(var output = File.Create("john.bat"))
             {
