@@ -18,26 +18,18 @@ namespace Easy.CsharpTest
         private static Timer _heartbeatTimer;
         private const int _heartbeatInterval = 10000;
 
-        public static Dictionary<int, PackageReqHead<BaseResData>> SendDic = new Dictionary<int, PackageReqHead<BaseResData>>();
+        public static Dictionary<int, PackageReqHead> SendDic = new Dictionary<int, PackageReqHead>();
 
         public static void Run()
         {
-            /*
-            for (int i = 0; i < 30; i++)
+            Net.Login((res) =>
             {
-                Net.Login((res) =>
-                {
-                    Console.WriteLine("Login callback!");
-                });
-            }
-            */
-                Net.Login((res) =>
-                { 
-                    var data = res as LoginDataRes;
-                    Console.WriteLine("SessionId:{0}", data.SessionId);
-                    PackageReqHead<LoginDataRes>.SessionId = data.SessionId;
-                    Console.WriteLine("Login callback!");
-                });
+                    //var data = res as LoginDataRes;
+                    var data = res;
+                Console.WriteLine("SessionId:{0}", data.SessionId);
+                PackageReqHead.SessionId = data.SessionId;
+                Console.WriteLine("Login callback!");
+            });
         }
 
         //1.Check  connection
@@ -119,6 +111,8 @@ namespace Easy.CsharpTest
             }
             catch (SocketException se)
             {
+                var msg = se.Message;
+                Console.WriteLine(msg);
                 return;
             }
 
@@ -143,24 +137,17 @@ namespace Easy.CsharpTest
                         NetRead(data, dataLen);
 
                         PackageResHead headRes;
-                        BaseResData res = null;
                         string strDataRes;
                         if (PackageFactory.Unpack(data, out headRes, out strDataRes))
                         {
                             OutputHeadRes(headRes);
 
-                            PackageReqHead<BaseResData> headReq;
+                            PackageReqHead headReq;
                             if(SendDic.TryGetValue(headRes.MsgId, out headReq))
                             {
                                 if(!GetError(headRes.StatusCode))
                                 {
-                                    var obj = Activator.CreateInstance(headReq.Type);
-                                    var backData = obj as BaseResData;
-
-                                    LoginDataRes dd = new LoginDataRes();
-                                    var ss = dd.GetType();
-                                    
-                                    //headReq.callback();
+                                    headReq.callback(strDataRes);
                                     SendDic.Remove(headRes.MsgId);
                                     Console.WriteLine("SendDic count:{0}", SendDic.Count);
                                 }

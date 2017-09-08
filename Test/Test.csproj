@@ -59,6 +59,7 @@
     <Compile Include="src\Serializable.cs" />
     <Compile Include="src\Socket.cs" />
     <Compile Include="src\SocketClientTest.cs" />
+    <Compile Include="src\Socket\CommunicationDataStruct.cs" />
     <Compile Include="src\Socket\ErrorCode.cs" />
     <Compile Include="src\Socket\Net.cs" />
     <Compile Include="src\Socket\PackageFactory.cs" />

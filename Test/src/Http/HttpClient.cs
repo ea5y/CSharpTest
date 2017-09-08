@@ -154,7 +154,7 @@ namespace Easy.CsharpTest
             {
                 if (_queue.Count > 0)
                 {
-                    var msg = "InvokeAsync...";
+                    //var msg = "InvokeAsync...";
                     Action action = _queue.Dequeue();
                     action();
                 }

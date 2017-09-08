@@ -5,6 +5,7 @@
 //================================
 
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Text;
 using System.IO;
@@ -35,8 +36,12 @@ namespace Easy.CsharpTest
             //Father father = new Father();
             //Child child = (Child)father;
 
+
+            //dic.Add(1, new Child());
             Console.ReadKey();
 		}
+
+        private static Dictionary<int, Father> dic = new Dictionary<int, Father>();
 
 		public class Father
 		{
